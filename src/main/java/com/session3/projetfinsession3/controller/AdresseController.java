@@ -24,11 +24,8 @@ public class AdresseController {
 	@Autowired(required=true)
 	private AdresseRepository adresseRepository;
 	
-	public AdresseController() {
-		
-	}
+	public AdresseController() {}
 	
-	//
 	@RequestMapping(value = "/adresses", method = RequestMethod.GET)
 	public ResponseEntity<?> getAllAdresse(){
 		System.out.println("++++++++++++++++");
@@ -63,11 +60,7 @@ public class AdresseController {
 	@RequestMapping(value = "/createadresse", method = RequestMethod.GET)
 	public ResponseEntity<?> getCreateAdresse(){
 		System.out.println("---------------------");
-		
-//		adresseRepository.deleteAllInBatch();
-//		Adresse ad1 = new Adresse("23 rue des plantes", "75400", "Paris");
-//		adresseRepository.save(ad1);
-		
+				
 		createAdresse();
 		
 		List<Adresse> listeAdresses = null;

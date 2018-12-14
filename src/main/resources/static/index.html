@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Base de données Client Adresse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css" />
+</head>
+<body>
+	<header id="header">
+		<div class="inner">
+			<a href="index.html" class="logo"> <span class="symbol"><img
+					src="image/icone-adresse-png.png" alt="icone-adresse-png" /></span><span
+				class="title">Le super projet de David et Géraldine</span>
+			</a>
+		</div>
+	</header>
+
+	<section id="sectionAdresse" class="container" style="min-height: 500px">
+		<header>
+			<h1>Base de données Client Adresse</h1>
+		</header>
+		<hr>
+		<article class="col-sm-6 col-xs-12" id="adresseDetail">
+		
+			<form class="form-horizontal" id="adresse-form">
+			<fieldset>
+				<div class="form-group form-group-lg">
+					<label class="col-sm-3 control-label">idAdresse</label>
+					<div class="col-sm-4">
+						<input type="number" tabindex="1"  placeholder="identifiant"  title="identifiant" class="form-control" id="id_adresse" />
+					</div>
+				</div>
+					<div class="form-group form-group-lg">
+					<label class="col-sm-3 control-label">nomAdresse</label>
+					<div class="col-sm-10">
+						<input type="text" tabindex="2"  class="form-control" id="adresseNom" />
+					</div>
+				</div>
+				<div class="form-group form-group-lg">
+					<label class="col-sm-3 control-label">codePostal</label>
+					<div class="col-sm-10">
+						<input type="text" tabindex="3"  class="form-control" id="code_postal" />
+					</div>
+				</div>
+				<div class="form-group form-group-lg">
+					<label class="col-sm-3 control-label">ville</label>
+					<div class="col-sm-10">
+						<input type="text" tabindex="4"  class="form-control" id="ville" />
+					</div>
+				</div>
+				
+			</fieldset>
+			</form>
+			<div class="form-group">
+				<div class="col-sm-12">
+					<button id="btn-get" class="btn btn-primary btn-lg" title="Rechercher" >Recherche</button>
+					<button id="btn-post" class="btn btn-primary btn-lg" title="Ajouter">Ajouter</button>
+					<button id="btn-put" class="btn btn-primary btn-lg" title="Modifier">Modifier</button>
+					<button id="btn-delete" class="btn btn-primary btn-lg" title="Supprimer">Supprimer</button>
+					<button id="btn-reset" class="btn btn-primary btn-lg" title="Effacer">Effacer</button>
+				</div>
+			</div>
+			<div id="feedbackadresse"></div>
+		</article>
+		
+		<article class="col-sm-6 col-xs-12" id="adresseList">
+			<table id="adresseTable" class="display">
+				<thead>
+					<tr>
+						<th>id_adresse</th>
+						<th>adresseNom</th>
+						<th>code_postal</th>
+						<th>ville</th>
+
+						
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>id_adresse</th>
+						<th>adresseNom</th>
+						<th>code_postal</th>
+						<th>ville</th>
+				
+						
+					</tr>
+				</tfoot>
+			</table>
+		</article>
+	</section>
+	<footer id="footer" class="container">
+		<p>
+			© <a href="http://www.simplon.co">simplon.co</a> 2018
+		</p>
+	</footer>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+	<script type="text/javascript" src="js/pfs3.js"></script>
+</body>
+</html>

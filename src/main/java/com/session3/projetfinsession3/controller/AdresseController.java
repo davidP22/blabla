@@ -40,13 +40,49 @@ public class AdresseController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 		}
 		System.out.println("++++++++++++++++");
-		//return ResponseEntity.status(HttpStatus.OK).body(listeClients);
-		
-//		Adresse ad1 = new Adresse("23 rue des plantes", "75400", "Paris");
-//		adresseRepository.save(ad1);
+	
 		return ResponseEntity.status(HttpStatus.OK).body(listeAdresses);
 		
 	}
+	
+	private void createAdresse() {
+
+		adresseRepository.deleteAllInBatch();
+		Adresse ad1 = new Adresse("23 rue des plantes", "75400", "Paris");
+		Adresse ad2 = new Adresse("45 avenue du trou", "44897", "Loirezt");
+		Adresse ad3 = new Adresse("1 impasse du figuier", "22700", "Paimpol");
+		Adresse ad4 = new Adresse("78 Boulevard de Paris", "63000", "Trouville");
+		adresseRepository.save(ad1);
+		adresseRepository.save(ad2);
+		adresseRepository.save(ad3);
+		adresseRepository.save(ad4);
+		
+	}
+	
+	
+	@RequestMapping(value = "/createadresse", method = RequestMethod.GET)
+	public ResponseEntity<?> getCreateAdresse(){
+		System.out.println("---------------------");
+		
+//		adresseRepository.deleteAllInBatch();
+//		Adresse ad1 = new Adresse("23 rue des plantes", "75400", "Paris");
+//		adresseRepository.save(ad1);
+		
+		createAdresse();
+		
+		List<Adresse> listeAdresses = null;
+		try {
+			listeAdresses = adresseRepository.findAll();
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		System.out.println("--------------");
+		
+		
+		return ResponseEntity.status(HttpStatus.OK).body(listeAdresses);
+		
+	}
+	
 	
 	
 	//ajouter une adresse ah ah ah

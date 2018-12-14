@@ -1,16 +1,13 @@
 package com.session3.projetfinsession3;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
-import com.session3.projetfinsession3.model.Adresse;
 import com.session3.projetfinsession3.repository.AdresseRepository;
 
 @SpringBootApplication
-public class Projetfinsession3Application implements CommandLineRunner{
+public class Projetfinsession3Application{ // implements CommandLineRunner{
 	
 //	@Autowired //(required=true)
 //	private ClientRepository clientRepository;
@@ -23,12 +20,15 @@ public class Projetfinsession3Application implements CommandLineRunner{
 		SpringApplication.run(Projetfinsession3Application.class, args);
 	}
 	
+
+
+//	@Override
+//	public void run(String... args) throws Exception {
+//		
 		
-	
-	@Override
-	public void run(String... args) throws Exception {
-		Adresse ad1 = new Adresse("23 rue des plantes", "75400", "Paris");
-		adresseRepository.save(ad1);
+		
+//		Adresse ad1 = new Adresse("23 rue des plantes", "75400", "Paris");
+//		adresseRepository.save(ad1);
 		
 		//clientRepository.deleteAllInBatch();
 		//adresseRepository.deleteAllInBatch();
@@ -52,5 +52,5 @@ public class Projetfinsession3Application implements CommandLineRunner{
 //		adresseRepository.save(ad1);
 //		adresseRepository.save(ad2);
 //		adresseRepository.save(ad3);
-	}
+	//}
 }

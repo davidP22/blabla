@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	
-	loadDatatable();
+	//loadDatatable();
 	
-	var table = $('#adresseTable').DataTable();
+	var table; // = $('#adresseTable').DataTable();
 	
 	$('#adresseTable tbody').on( 'dblclick', 'tr', function () {
 	    let dataRow = table.row( this ).data();
@@ -52,8 +52,55 @@ $(document).ready(function(){
 		
 		
 	});
+	
+	//click on create
+	$("#btn-create").click(function(){
+		createAdresse();//creer des adresses
+	});
 });
 
+function createAdresse() {
+	document.getElementById('adresseList').style.visibility="visible";
+	loadDatatable();
+	table = $('#adresseTable').DataTable();
+	var idAdresse = $("#id_adresse").val(); // on récupère la variable
+	
+}
+
+
+function getAdresse() {
+
+	var idAdresse = $("#id_adresse").val(); // on récupère la variable
+
+	$.ajax({
+		type : "GET",
+		contentType : "application/json",
+		url : "/api/adresses/",
+		data : {},
+		dataType : 'json',
+		cache : false,
+		timeout : 600000,
+		success : function(data) {
+
+			var json = "<h3>Server Response format JSON</h3><pre>Adresse trouvé :<br>" + JSON.stringify(data, null, 4) + "</pre>";
+			$('#feedbackadresse').html(json);
+			$("#id_adresse").val(data.id_adresse);
+			$("#adresseNom").val(data.adresseNom);
+			$("#code_postal").val(data.code_postal);
+			$("#ville").val(data.ville);
+			
+			console.log("SUCCESS : ", data);
+		},
+		error : function(e) {
+
+			var json = "<h3>Server Response</h3><pre>" + e.responseText	+ "</pre>";
+			
+			$('#feedbackadresse').html(json);
+
+			console.log("ERROR : ", e);
+		}
+	});
+}
 
 
 
@@ -82,9 +129,10 @@ function loadDatatable() {
 	            },
 	        ],
 		"ajax" : {
-			url : '/api/adresses',
+			url : '/api/createadresse',
 			dataSrc : ''
-		},
+		},	       
+	
 		"columns" : [ 
 			{"data" : "id_adresse"},
 			{"data" : "adresseNom"},
